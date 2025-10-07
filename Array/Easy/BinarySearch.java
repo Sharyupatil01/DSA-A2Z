@@ -1,5 +1,7 @@
 
 
+package Array.Easy;
+
 class BinarySearch
 {
     public static void main(String args[])
