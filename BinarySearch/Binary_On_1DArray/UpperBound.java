@@ -1,3 +1,4 @@
+package Binary_On_1DArray;
 public class UpperBound {
     public static void main(String args[])
     {

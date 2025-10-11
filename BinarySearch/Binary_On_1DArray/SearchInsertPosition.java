@@ -1,3 +1,4 @@
+package Binary_On_1DArray;
 
 public class SearchInsertPosition {
     

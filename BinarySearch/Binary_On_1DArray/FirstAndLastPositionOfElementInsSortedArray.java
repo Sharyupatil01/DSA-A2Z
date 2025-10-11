@@ -1,3 +1,4 @@
+package Binary_On_1DArray;
 class FirstAndLastPositionOfElementInsSortedArray {
     public int[] searchRange(int[] nums, int target) {
         int low=0;
