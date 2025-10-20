@@ -1,0 +1,49 @@
+// to host the project on github
+*//*
+cd GyaanShaala
+git init 
+git add . 
+git commit -m "Initial first commit"
+git branch -M main
+git remote add origin <URL>
+git push -u origin main
+*/
+
+// to clone the project from github 
+/*
+ *  git clone <URL>
+ */
+
+ //CREATING NEW BRANCH 
+ git branch feature_1 //create a new branch
+ git checkout feature_1 //navigate 
+
+ // add the changes that you want 
+
+ git branch main 
+ git merge feature_1 //changes will get merged into main
+
+ //delete the branch 
+ git branch -d feature_1
+
+ // to check the status 
+ git status // commit history 
+ git log //to check the commits log 
+
+
+ // pull from remote to local 
+ git pull -u origin main
+
+ // push from local to remote 
+ git push -u origin main
+
+ //diff of brach main and feature_1 
+ git diff main feature_1
+
+ //to merge feature_1 into main 
+ git merge feature_1
+
+ //to merge main into feature_1 
+ git merge main
+
+

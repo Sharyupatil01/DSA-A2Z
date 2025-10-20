@@ -1,0 +1,49 @@
+[1mdiff --git a/gitcommands/gitpractice b/gitcommands/gitpractice[m
+[1mnew file mode 100644[m
+[1mindex 0000000..3f1b90e[m
+[1m--- /dev/null[m
+[1m+++ b/gitcommands/gitpractice[m
+[36m@@ -0,0 +1,42 @@[m
+[32m+[m[32m// to host the project on github[m
+[32m+[m[32m*//*[m
+[32m+[m[32mcd GyaanShaala[m
+[32m+[m[32mgit init[m[41m [m
+[32m+[m[32mgit add .[m[41m [m
+[32m+[m[32mgit commit -m "Initial first commit"[m
+[32m+[m[32mgit branch -M main[m
+[32m+[m[32mgit remote add origin <URL>[m
+[32m+[m[32mgit push -u origin main[m
+[32m+[m[32m*/[m
+[32m+[m
+[32m+[m[32m// to clone the project from github[m[41m [m
+[32m+[m[32m/*[m
+[32m+[m[32m *  git clone <URL>[m
+[32m+[m[32m */[m
+[32m+[m
+[32m+[m[32m //CREATING NEW BRANCH[m[41m [m
+[32m+[m[32m git branch feature_1 //create a new branch[m
+[32m+[m[32m git checkout feature_1 //navigate[m[41m [m
+[32m+[m
+[32m+[m[32m // add the changes that you want[m[41m [m
+[32m+[m
+[32m+[m[32m git branch main[m[41m [m
+[32m+[m[32m git merge feature_1 //changes will get merged into main[m
+[32m+[m
+[32m+[m[32m //delete the branch[m[41m [m
+[32m+[m[32m git branch -d feature_1[m
+[32m+[m
+[32m+[m[32m // to check the status[m[41m [m
+[32m+[m[32m git status // commit history[m[41m [m
+[32m+[m[32m git log //to check the commits log[m[41m [m
+[32m+[m
+[32m+[m
+[32m+[m[32m // pull from remote to local[m[41m [m
+[32m+[m[32m git pull -u origin main[m
+[32m+[m
+[32m+[m[32m // push from local to remote[m[41m [m
+[32m+[m[32m git push -u origin main[m
+[32m+[m
+[32m+[m[32m //diff of brach main and feature_1[m[41m [m
+[32m+[m[32m git diff main feature_1[m
+[32m+[m[41m [m
+\ No newline at end of file[m
