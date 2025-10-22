@@ -39,6 +39,7 @@ All examples use a consistent dataset to make the concepts easy to understand an
 
 ### 1. INNER JOIN
 ```sql
+1. Inner Join 
 SELECT c.CustomerName, o.Product
 FROM Customers c
 INNER JOIN Orders o
