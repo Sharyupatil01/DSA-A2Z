@@ -31,6 +31,7 @@ public class WordPattern {
                     return;
                 }
                 map.put(ch,arr[i]);
+                map.put(ch,arr[j])
             }
         }
         System.out.println(true);
