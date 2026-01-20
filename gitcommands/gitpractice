@@ -1,12 +1,19 @@
 // to host the project on github
 *//*
 cd GyaanShaala
-git init 
-git add . 
-git commit -m "Initial first commit"
+
+git init // initalisation of remote github 
+
+git add . // load the page of github page 
+
+git commit -m "Initial first commit"  
+
 git branch -M main
+
 git remote add origin <URL>
+
 git push -u origin main
+
 */
 
 // to clone the project from github 
@@ -45,5 +52,7 @@ git push -u origin main
 
  //to merge main into feature_1 
  git merge main
+
+
 
 
