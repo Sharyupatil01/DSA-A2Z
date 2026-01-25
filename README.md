@@ -1,7 +1,8 @@
-## Getting back to track - A2Z Striver Sheet 
+# Daily Striver DSA Practice 🚀
 
-## 🏹 Array 
+This repository contains my daily practice solutions from **Striver’s DSA Sheet**.
+The goal is to master Data Structures & Algorithms by solving a variety of problems
+across different topics.
 
- 1️⃣ [Easy](https://github.com/Sharyupatil01/DSA-A2Z/edit/main/Array/Easy/README.md)
- <br>
- 2️⃣ [Medium](https://github.com/Sharyupatil01/DSA-A2Z/blob/main/Array/Medium/README.md)
+## 🛠 Language Used
+- Java
