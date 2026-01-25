@@ -1,4 +1,4 @@
-package JavaInputOutput;
+package JavaFundamentals.JavaInputOutput;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

@@ -1,4 +1,4 @@
-package JavaInputOutput;
+package JavaFundamentals.JavaInputOutput;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
