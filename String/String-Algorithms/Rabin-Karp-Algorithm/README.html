@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rabin-Karp Algorithm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        ul {
+            background: #ecf0f1;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        code {
+            background: #34495e;
+            color: #ecf0f1;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        pre {
+            background: #34495e;
+            color: #ecf0f1;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .complexity {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .highlight {
+            background: #f39c12;
+            color: white;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rabin-Karp Algorithm</h1>
+
+        <h2>How Rabin-Karp Algorithm Works?</h2>
+        <ul>
+            <li>Calculate the hashCode of pattern to be searched</li>
+            <li>Calculate the hashCode of every substring of length same as pattern from given text (Sliding window)</li>
+            <li>Check which window's hashCode matches pattern's hashCode</li>
+            <li>Compare characters of both strings</li>
+        </ul>
+
+        <h2>What is Rolling Hash?</h2>
+        <p>Rolling hash is used to prevent rehashing the whole string while calculating hash values of the substrings of a given string. In rolling hash, the new hash value is rapidly calculated given only the old hash value. Using it, two strings can be compared in constant time.</p>
+
+        <h2>Implementation</h2>
+        <pre><code>class Solution {
+    public int strStr(String haystack, String needle) {
+        int M = needle.length(); 
+        int N = haystack.length();
+        
+        if(M > N) return -1;
+        
+        int i, j; 
+        int p = 0; // hash value for needle 
+        int t = 0; // hash value for haystack 
+        int h = 1;
+        int d = 256; // number of characters in the input alphabet 
+        int q = 31; // a prime number
+
+        char[] pat = needle.toCharArray();
+        char[] txt = haystack.toCharArray();
+        // The value of h would be "pow(d, M-1)%q" 
+        for (i = 0; i < M - 1; i++) 
+            h = (h * d) % q; 
+
+        // Calculate the hash value of pattern and first 
+        // window of text 
+        for (i = 0; i < M; i++) { 
+            p = (d * p + pat[i]) % q; 
+            t = (d * t + txt[i]) % q; 
+        } 
+
+        // Slide the pattern over text one by one 
+        for (i = 0; i <= N - M; i++) { 
+
+            // Check the hash values of current window of text 
+            // and pattern. If the hash values match then only 
+            // check for characters one by one 
+            if (p == t) { 
+                /* Check for characters one by one */
+                for (j = 0; j < M; j++) { 
+                    if (txt[i + j] != pat[j]) 
+                        break; 
+                } 
+
+                // if p == t and pat[0...M-1] = txt[i, i+1, ...i+M-1] 
+                if (j == M) 
+                    return i;
+            } 
+
+            // Calculate hash value for next window of text: Remove 
+            // leading digit, add trailing digit 
+            if (i < N - M) { 
+                t = (d * (t - txt[i] * h) + txt[i + M]) % q; 
+
+                // We might get negative value of t, converting it 
+                // to positive 
+                if (t < 0) 
+                    t = (t + q); 
+            } 
+        }
+        return -1;
+    }
+}</code></pre>
+
+        <h2>Complexity</h2>
+        <p class="complexity">Time: O(N + M)</p>
+        <p class="complexity">Space: O(1)</p>
+        <p>Although I used two char arrays, they can be avoided.</p>
+
+        <h2>Why use a prime number in hashCode?</h2>
+        <p>Prime numbers are chosen to best distribute data among hash buckets. If the distribution of inputs is random and evenly spread, then the choice of the hash code/modulus does not matter. It only has an impact when there is a certain pattern to the inputs.</p>
+
+        <p class="highlight">Do upvote if you liked the solution.</p>
+    </div>
+</body>
+</html>
