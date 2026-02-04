@@ -4,7 +4,14 @@
 
 --  or  clause 
 
+-- select name 
+-- from Customer 
+-- where 
+-- referee_id is null or referee_id!=2;
+
+
+-- Interview Friendly Approach 
+
 select name 
 from Customer 
-where 
-referee_id is null or referee_id!=2;
+where coalesce(referee_id , 0) <> 2;
