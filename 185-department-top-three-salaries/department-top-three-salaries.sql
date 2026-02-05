@@ -23,8 +23,8 @@ from Employee as e
 join Department as d 
 on e.departmentId = d.id 
 where 3 >(
-    select count(distinct e1.salary)
-    from Employee as e1 
-    where e1.departmentId=e.departmentId 
-    and  e1.salary > e.salary
+    select count(distinct salary)
+    from Employee 
+    where departmentId=e.departmentId 
+    and  salary > e.salary
 );
