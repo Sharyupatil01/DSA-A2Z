@@ -6,12 +6,12 @@
 -- limit 1 offset 1; 
 
 -- SubQuery 
-select max(salary) as SecondHighestSalary 
-from Employee 
-where salary < (
-    select max(salary)
-    from Employee
-);
+-- select max(salary) as SecondHighestSalary 
+-- from Employee 
+-- where salary < (
+--     select max(salary)
+--     from Employee
+-- );
 
 
 
@@ -32,3 +32,15 @@ where salary < (
 -- Test this yourself:
 -- If Employee has [(1, 5000)] (one employee), the query returns NULL as the result.
 -- If Employee has [(1, 5000), (2, 5000)] (all salaries equal), it also returns NULL.
+
+
+
+-- Window functions 
+
+select max(salary) as SecondHighestSalary 
+from ( 
+    select salary ,
+    row_number() over(order by salary desc) as rn   from  (
+        select distinct salary from Employee) d 
+) x 
+where x.rn=2;
