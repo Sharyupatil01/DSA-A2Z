@@ -36,11 +36,21 @@
 
 
 -- Window functions 
+-- Row Function()
+
+-- select max(salary) as SecondHighestSalary 
+-- from ( 
+--     select salary ,
+--      over(order by salary desc) as rn   from  (
+--         select distinct salary from Employee) d 
+-- ) x 
+-- where x.rn=2;
+
 
 select max(salary) as SecondHighestSalary 
 from ( 
     select salary ,
-    row_number() over(order by salary desc) as rn   from  (
-        select distinct salary from Employee) d 
+     dense_rank() over (order by salary desc) as rn   
+     from Employee e 
 ) x 
 where x.rn=2;
